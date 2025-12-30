@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protected page</title>
+    <link rel="stylesheet" href="../static/style/style.css">
+</head>
+<body>
+    <a href="/info">Информация</a>
+    <a href="/work">Работа</a>
+    <a href="/">← Выйти</a>
+<div class="center">
+    <h1>Добро пожаловать, {{user.user_name}} </h1>
+    <h2>Это страница защищена. Только для админа!</h2>
+</div>
+<script src="../static/js/script.js"></script>
+</body>

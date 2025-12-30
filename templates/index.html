@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application FASTAPI</title>
+    <link rel="stylesheet" href="../static/style/style.css">
+</head>
+<body>
+{% if message %}
+<div id="message" class="message">{{message}}</div>
+{% endif %}
+<div class="center">
+    <h1>Добро пожаловать, гость! </h1>
+    <form id="data" method="post" action="/login" class="data">
+        <input type="email" placeholder="логин" name="login" title="Электронная почта: логин в системе" required>
+        <input type="password" placeholder="пароль" name="password" required>
+        <button id="log_button" class="log_button" type="submit">Отправить</button>
+        <a href="/reg">Регистрация</a>
+        <a href="#">Забыли пароль?</a>
+    </form>
+</div>
+</body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application registration</title>
+    <link rel="stylesheet" href="../static/style/style.css">
+</head>
+<body>
+<div class="center">
+    <h1>Регистрация </h1>
+    <form id="data" method="post" action="/reg" class="data">
+        <input type="text" name="fio" placeholder="ФИО" required>
+        <input type="email" name="email" placeholder="логин" title="Эл почта - ваш логин в системе" required>
+        <input type="password" name="password" placeholder="пароль" required>
+        <input type="password" name="repeat" placeholder="повторите пароль" required>
+        <button id="log_button" type="submit" class="log_button">Отправить</button>
+        <a href="#">Забыли пароль?</a>
+    </form>
+</div>
+</body>

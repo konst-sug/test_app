@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+    <link rel="stylesheet" href="../static/style/style.css">
+</head>
+<body>
+
+    <a href="/info">Информация</a>
+    <a href="/work">Работа</a>
+    <a href="/protect">Настройки</a>
+
+<div class="center">
+    <h1>Приветствуем  {{user.user_name}}</h1>
+    
+    <form action="/logout" method="post">
+        <input type="hidden" class="hidden" value="true">
+        <button type="submit">Выйти</button>
+    </form>
+    {% if user.role != 'admin' %}
+    <h2>Изменить учетные данные</h2>
+    <form id="data-{{ user.user_name }}" class="data-user" action="/change" method="post">
+        <input type="text" name="username" placeholder="ФИО" value="{{ user.user_name }}">
+        <input type="text" name="useremail" placeholder="логин" value="{{ user.user_mail }}" readonly>
+        <input type="password" placeholder="пароль" value="{{ user.user_password }}" readonly>
+        <input type="text" name="userpassword" placeholder="изменить пароль">
+        <input type="checkbox" name="deluser" title="удалить пользователя">
+        <button id="del_button" class="log_button" title="Сохранить изменения" button type="submit">Сохранить</button>
+    </form>
+    {% endif %}
+    {% if user.role == 'admin' %}
+    <h2>Пользователи</h2>
+    {% for d in data %}
+        <div id="user-table" class="user-table">
+            <form id="data-{{ d.user_name }}" class="data-user"  action="/adminchange" method="post">
+            <input type="text" name="username" placeholder="ФИО" value="{{ d.user_name }}">
+            <input type="text" name="useremail" placeholder="логин" value="{{ d.user_mail }}">
+            <input type="password" name="userpassword" placeholder="пароль" value="{{ d.user_password }}">
+            <input type="text" placeholder="роль в системе" value="{{ d.role }}" style="width: 50px;" readonly>
+            <input type="text" placeholder="роль в системе" value="{{ d.status }}" style="width: 50px;" readonly>
+            <input type="checkbox" name="deluser" title="удалить пользователя">
+            <button id="del-button" class="log-button" title="Сохранить изменения">Сохранить</button>
+    </form>
+        </div>
+        {% endfor %}
+        <div id="add-user" class="user-table" style="margin-top: 20px;">
+            <h2>Добавление пользователя</h2>
+            <form action="/add" method="post">
+                <input type="text" name="newuser" placeholder="ФИО" value="">
+                <input type="email" name="newmail" placeholder="логин" value="">
+                <input type="password" name="newpassword" placeholder="пароль" value="">
+                <button id="save-button" class="log-button">Сохранить</button>
+            </form>
+        </div>
+    {% endif %}
+</div>
+<script src="../static/js/script.js"></script>
+</body>
