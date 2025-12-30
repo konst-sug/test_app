@@ -1,0 +1,1 @@
+[{"user_name": "admin", "user_mail": "admin@mail.ru", "user_password": "admin", "role": "admin", "status": "active"}, {"user_name": "vasya", "user_mail": "vasya@mail.ru", "user_password": "qwerty", "role": "user", "status": "active"}, {"user_name": "biba", "user_mail": "123@mail.ru", "user_password": "biba", "role": "user", "status": "active"}]
