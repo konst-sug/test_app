@@ -47,7 +47,7 @@ async def user_page(request: Request, response: Response, login: str=Form(...), 
 
 
 @app.get('/reg', response_class=HTMLResponse)
-async def start_page(request: Request):
+async def registration_page(request: Request):
     return templates.TemplateResponse('reg.html', {'request': request})
 
 
@@ -157,4 +157,5 @@ async def info_page(request: Request, session_check = Depends(authorized)):
         print(str(error))
         msg = 'Error on info page.'
         response = templates.TemplateResponse('error.html', {'request': request, 'message': msg})
+
         return response
